@@ -1,41 +1,24 @@
 import { SkillCard } from '@/components/skill-card';
-import { Skill } from '@/interfaces';
 import { ModeToggle } from '@/components/mode-toggle';
+import { FlashlightCursor } from '@/components/flashlight-cursor';
 
-const skills: Skill[] = [
-  {
-    title: 'Slack Apps',
-    content:
-      'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut pariatur atque soluta enim nulla labore doloribus quaerat tempore ipsam, error maxime nihil fugit necessitatibus! Velit iure repudiandae tempora quae excepturi?',
-    description: 'backend & UI',
-  },
-  {
-    title: 'Nodejs',
-    content:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam ullam repellat officiis aliquid pariatur iusto quasi eveniet suscipit! Nobis harum quia beatae nesciunt modi impedit repellendus tenetur architecto nam nisi.',
-    description: 'backend',
-  },
-  {
-    title: 'AWS Services',
-    content:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto, provident debitis maxime, in quam est veniam dolore quo odit cumque doloribus sequi omnis laborum commodi quis aliquam repudiandae sint iusto!',
-    description: 'cloud',
-  },
-];
+import { skills } from '@/data/skills';
 
 export default function Home() {
   return (
-    <div className="container mx-auto px-4 py-12">
+    <div className="container mx-auto px-4 py-4">
       <h1 className="text-2xl font-bold mb-16 mt-12 text-5xl text-center">
         Welcome to my portfolio!
       </h1>
 
-      <div className="flex">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {skills.map((skill) => (
           <SkillCard {...skill} />
         ))}
       </div>
+      {/* Cool stuff */}
       <ModeToggle />
+      <FlashlightCursor />
     </div>
   );
 }

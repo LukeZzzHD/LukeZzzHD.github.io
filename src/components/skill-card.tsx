@@ -1,5 +1,7 @@
+'use client';
+
 import React from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 interface SkillCardProps {
   title: string;
@@ -9,13 +11,13 @@ interface SkillCardProps {
 
 export function SkillCard({ title, description, content }: SkillCardProps) {
   return (
-    <Card className="w-1/3 px-2 m-3 cursor-pointer rounded shadow hover:shadow-lg transform transition-transform duration-300 hover:scale-105">
-      <CardHeader>
-        <CardTitle>{title}</CardTitle>
-        <CardDescription>{description}</CardDescription>
+    <Card className="skill-card w-full border p-4 rounded shadow-md">
+      <CardHeader className="mb-2">
+        <CardTitle className="text-xl font-bold mb-1">{title}</CardTitle>
+        <CardDescription className="text-gray-600">{description}</CardDescription>
       </CardHeader>
       <CardContent>
-        <p>{content}</p>
+        <p className="text-gray-800">{content}</p>
       </CardContent>
     </Card>
   );
