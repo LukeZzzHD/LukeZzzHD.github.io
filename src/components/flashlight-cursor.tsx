@@ -1,36 +1,37 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
+import React, { useState, useEffect } from 'react';
 
 export function FlashlightCursor() {
   const lightBulbSizePixel = 600;
-  const [coords, setCoords] = useState({ x: 0, y: 0 });
+  const [lightBulbCoords, setLightBulbCoords] = useState({ x: 0, y: 0 });
   const { theme } = useTheme();
+  const isDarkMode = theme === 'dark';
 
   useEffect(() => {
-    const updateCoords = (e: MouseEvent) => {
-      setCoords({ x: e.clientX, y: e.clientY });
+    const updateCoordsMouseMove = (e: MouseEvent) => {
+      setLightBulbCoords({ x: e.screenX, y: e.screenY });
     };
 
-    window.addEventListener('mousemove', updateCoords);
+    window.addEventListener('mousemove', updateCoordsMouseMove);
 
     return () => {
-      window.removeEventListener('mousemove', updateCoords);
+      window.removeEventListener('mousemove', updateCoordsMouseMove);
     };
-  }, [theme]);
+  }, []);
 
   const lightBulbStyle = {
-    background: `radial-gradient(${lightBulbSizePixel}px at ${coords.x}px ${coords.y}px, rgba(29, 78, 216, 0.2), transparent 80%)`,
-    // rgba(29, 78, 216, 0.15)
+    zIndex: 100,
+    background: isDarkMode
+      ? `radial-gradient(${lightBulbSizePixel}px at ${lightBulbCoords.x}px ${lightBulbCoords.y}px, rgba(29, 78, 216, 0.2), transparent 80%)`
+      : '',
   };
 
   return (
-    theme === 'dark' && (
-      <div
-        style={lightBulbStyle}
-        className="pointer-events-none fixed inset-0 z-30 transition duration-300 lg:absolute"
-      ></div>
-    )
+    <div
+      style={lightBulbStyle}
+      className="pointer-events-none inset-0 z-10 transition duration-300 fixed"
+    ></div>
   );
 }
