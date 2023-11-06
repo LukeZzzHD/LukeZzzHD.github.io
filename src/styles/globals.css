@@ -4,7 +4,7 @@
 
 @layer components {
   .skill-card {
-    @apply w-1/3 px-2 m-3 cursor-pointer rounded shadow hover:shadow-lg transform transition-transform duration-300 hover:scale-105;
+    @apply w-1/3 px-2 cursor-pointer rounded shadow hover:shadow-lg transform transition-transform duration-300 hover:scale-105;
   }
 
   .skill-card .skill-card-content {
@@ -13,6 +13,14 @@
 
   .skill-card:hover .skill-card-content {
     @apply text-gray-400;
+  }
+
+  .skill-card:hover {
+    @apply dark:border-blue-500;
+  }
+
+  .skill-tag:hover {
+    @apply dark:border-blue-500 dark:text-blue-500 border-gray-500 text-gray-500;
   }
 }
 
@@ -86,5 +94,6 @@
   }
   body {
     @apply bg-background text-foreground;
+    overflow-x: hidden;
   }
 }

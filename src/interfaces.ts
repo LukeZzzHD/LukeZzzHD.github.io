@@ -1,6 +1,8 @@
+import { SkillTagCategory } from './components/skill-tag';
+
 export interface Skill {
   id: number;
   title: string;
   content: string;
-  description: string;
+  tags: SkillTagCategory[];
 }
