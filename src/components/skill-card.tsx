@@ -19,7 +19,7 @@ interface SkillCardProps {
 
 export function SkillCard({ title, content, tags }: SkillCardProps) {
   return (
-    <Card className="skill-card flex flex-col w-full border p-4 rounded shadow-md dark:hover:text-white">
+    <Card className="skill-card flex flex-col w-full border p-4 rounded shadow-md hover:dark:border-blue-500 dark:hover:text-white">
       <CardHeader className="mb-2">
         <CardTitle className="text-xl font-bold mb-1">{title}</CardTitle>
       </CardHeader>

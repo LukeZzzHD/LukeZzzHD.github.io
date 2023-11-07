@@ -15,10 +15,6 @@
     @apply text-gray-400;
   }
 
-  .skill-card:hover {
-    @apply dark:border-blue-500;
-  }
-
   .skill-tag:hover {
     @apply dark:border-blue-500 dark:text-blue-500 border-gray-500 text-gray-500;
   }
