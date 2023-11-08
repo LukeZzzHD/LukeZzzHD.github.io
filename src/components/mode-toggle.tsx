@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import { MoonIcon, SunIcon } from '@radix-ui/react-icons';
 import { useTheme } from 'next-themes';
 import { Button } from '@/components/ui/button';
@@ -18,7 +17,7 @@ export function ModeToggle() {
 
   return (
     <Button
-      className="absolute top-4 right-4"
+      className="fixed top-4 right-4"
       variant="outline"
       size="icon"
       onClick={handleToggleTheme}

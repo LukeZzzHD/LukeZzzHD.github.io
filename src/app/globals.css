@@ -18,6 +18,14 @@
   .skill-tag:hover {
     @apply dark:border-blue-500 dark:text-blue-500 border-gray-500 text-gray-500;
   }
+
+  .back-home-icon {
+    @apply transition duration-150 ease-in;
+  }
+
+  .back-home-button:hover .back-home-icon {
+    @apply -translate-x-1;
+  }
 }
 
 @layer base {
